@@ -5,3 +5,101 @@ campaignTrail_temp.opponents_default_json = JSON.parse("[{\"election\": 15, \"ca
 campaignTrail_temp.opponents_weighted_json = JSON.parse("[{\"election\": 15, \"candidates\": [153, 152, 154, 155]}]");        
 campaignTrail_temp.temp_election_list = [{"id": 15, "year": 1988, "is_premium": 0, "display_year": "1992t"}];
 campaignTrail_temp.credits = 'theanswerisme';
+// Primary two
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title  = "#184B56"; // Tsongas teal/ink
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#D6E9E2"; // mint-paper UI
+
+$(".container")[0].style.background =
+  "linear-gradient(180deg, #EAF4F1 0%, #DCEEE8 60%, #D6E9E2 100%)";
+
+document.getElementsByClassName("game_header")[0].style.backgroundColor =
+  nct_stuff.themes[nct_stuff.selectedTheme].coloring_title;
+$("#game_window")[0].style.backgroundColor =
+  nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
+
+let style = document.createElement('style');
+style.type = 'text/css';
+style.id = 'dynamic-style';
+
+style.innerHTML = `
+:root{
+  /* Tsongas ’92 early-90s palette */
+  --tz-title: #184B56;   /* coloring_title */
+  --tz-window:#D6E9E2;   /* coloring_window */
+  --tz-ink:   #0F2F38;   /* deep slate for borders/text */
+  --tz-teal:  #1F6E7A;   /* action/link accent */
+  --tz-mint:  #E8F3EF;   /* light panel mint */
+  --tz-paper: #F7F5F0;   /* off-white paper */
+}
+
+/* opening emphasis bar: subtle teal gradient (late-NES bevel vibe) */
+.campaign_trail_start_emphasis{
+  background:
+  linear-gradient(180deg, rgba(255,255,255,.015) 0%, rgba(0,0,0,.035) 100%),
+  var(--tz-title);
+}
+
+/* section headers pick up medium teal to read on light backgrounds */
+#state_info h3,
+#state_result h3,
+#overall_result h3 {
+  background-color: var(--tz-teal);
+  color: #fff;
+}
+
+/* campaign sign stays image-driven; keep minimal border */
+#campaign_sign {
+  background-image: url("https://i.postimg.cc/D0CP08MB/o400gdt.png");
+  background-size: cover;
+  background-position: center;
+  border-color: #c9c9c9;
+  border-width: .01em;
+  margin: 0 auto;
+  width: 100%;
+  height: 104px;
+  margin-left: -0.033em;
+  margin-right: -0.033em;
+}
+#campaign_sign p {
+  color: rgb(0 0 0 / 0%);
+}
+
+/* inner window placard: mint-on-white with subtle double border */
+.inner_window_sign_display {
+  margin: 0;
+  margin-right: 0.033px;
+  margin-left: 0.033px;
+  position: relative;
+  width: 35%;
+  height: 28%;
+  background-color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: double;
+  border-color: #C9C9C9; /* intentionally light to avoid heaviness */
+}
+
+/* spacing stays */
+#map_footer { padding-top: 3em; }
+
+/* overlay & result containers = window mint */
+.overlay_window h3,
+.inner_window_question h3 {
+  background-color: var(--tz-window);
+}
+#overall_result_container,
+#state_result_container {
+  background-color: var(--tz-window);
+}
+
+/* maintain height behavior */
+.overlay_window { height: auto; }
+
+/* menu bar matches window tone (Win 3.x vibe) */
+#menu_container { background-color: var(--tz-window) !important; }
+
+/* links = action teal, readable on mint/paper */
+a:-webkit-any-link { color: var(--tz-teal); }
+`;
+
+document.head.appendChild(style);
