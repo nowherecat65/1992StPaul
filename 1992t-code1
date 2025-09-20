@@ -5,6 +5,9 @@ campaignTrail_temp.opponents_default_json = JSON.parse("[{\"election\": 15, \"ca
 campaignTrail_temp.opponents_weighted_json = JSON.parse("[{\"election\": 15, \"candidates\": [153, 152, 154, 155]}]");        
 campaignTrail_temp.temp_election_list = [{"id": 15, "year": 1988, "is_premium": 0, "display_year": "1992t"}];
 campaignTrail_temp.credits = 'theanswerisme';
+
+document.getElementById("header").src = "https://i.postimg.cc/2yBwMS27/banner-yay.png";
+
 // Primary two
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_title  = "#1F6E7A"; // Tsongas teal/ink
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#D6E9E2"; // mint-paper UI
